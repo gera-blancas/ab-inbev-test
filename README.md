@@ -3,30 +3,51 @@ ab-inbev-test is a api REST that was developed by Gerardo Blancas.
 
 The language that this api is programming is python 3 with the framework Flask and use a data base no relational with the MongoDB engine. The performance of the api is to make a score according to the word, altitude and longitude that send in the request.
 
+### Request
+
 The method that the api use is a GET that send the next data in the request: 
-q: Text that you are looking for
-latitude: Latitud of the city
-longitude: Longitude of the city
+
+>q: Text that you are looking for
+
+>latitude: Latitud of the city
+
+>longitude: Longitude of the city
+
+
+### Response
 
 The response that the api sends is:
-status: codigo de respuesta
-response: es una lista del score ordenada descendientemente 
+
+>status: status code
+
+>response: A list of result in descending score
+
 
 The status code that the api uses are the next:
-0: correct
--1: incorrect
 
-Examples:
+>0: correct
+
+>-1: incorrect
+
+
+
+### Examples
+
 
 Example of a correct response:
 
+
 Request:
-q:Bridgewater
-latitude:44.39
-longitude:-88.91
+
+>q:Bridgewater
+
+>latitude:44.39
+
+>longitude:-88.91
 
 Response:
-{
+
+>{
     "response": [
         {
             "latitude": "40.60079",
@@ -69,27 +90,41 @@ Response:
 }
 
 
+
 Example of response with no records found:
 
+
 Request:
-q:SomeCity
-latitude:44.39
-longitude:-88.91
+
+>q:SomeCity
+
+>latitude:44.39
+
+>longitude:-88.91
+
 
 Response:
-{
+
+>{
     "response": [],
     "status": 0
 }
 
+
 Example of incorrect response:
+
 Request:
-q:
-latitude:44.39
-longitude:-88.91
+
+>q:
+
+>latitude:44.39
+
+>longitude:-88.91
+
 
 Response:
-{
+
+>{
     "message": "One or more parameters of the request are empty",
     "status": -1
 }
